@@ -19,15 +19,18 @@ class MovieRepository @Inject constructor(
     }
 
     suspend fun requestTopRatedMovies() {
-        if (roomLocalDataSource.topRatedIsEmpty()) {
-            roomLocalDataSource.saveTopRatedMovies(remoteDataSource.requestTopRatedMovies())
-        }
-
+        roomLocalDataSource.saveTopRatedMovies(remoteDataSource.requestTopRatedMovies())
     }
 
     suspend fun requestNowPlayingMovies() {
-        if (roomLocalDataSource.nowPlayingIsEmpty()) {
-            roomLocalDataSource.saveNowPlayingMovies(remoteDataSource.requestNowPlayingMovies())
-        }
+        roomLocalDataSource.saveNowPlayingMovies(remoteDataSource.requestNowPlayingMovies())
+    }
+
+    suspend fun countTopRatedMovies(): Int {
+        return roomLocalDataSource.countTopRatedMovies()
+    }
+
+    suspend fun countNowPlayingMovies(): Int {
+        return roomLocalDataSource.countNowPlayingMovies()
     }
 }

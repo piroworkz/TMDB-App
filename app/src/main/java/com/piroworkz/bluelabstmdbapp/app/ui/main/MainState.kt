@@ -5,7 +5,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.piroworkz.bluelabstmdbapp.domain.Movie
 
-class MainState(val findNavController: NavController) {
+class MainState(private val findNavController: NavController) {
 
     fun queryListener(
         st: MainViewModel.MainState,

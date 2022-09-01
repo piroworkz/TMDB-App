@@ -18,8 +18,8 @@ fun ImageView.loadImg(url: String?) {
     }
 }
 
-@BindingAdapter("topRated")
-fun RecyclerView.topRated(movies: List<Movie>?) {
+@BindingAdapter("submitList")
+fun RecyclerView.submitList(movies: List<Movie>?) {
     movies?.let {
         (adapter as MoviesAdapter).submitList(movies)
     }

@@ -22,7 +22,7 @@
         android:padding="2dp">
 
         <FrameLayout
-            android:layout_width="190dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content">
 
             <com.piroworkz.bluelabstmdbapp.app.ui.common.CustomImageView
@@ -52,22 +52,22 @@
                     tools:text="8.7" />
             </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|bottom"
-                android:background="?attr/colorPrimaryVariant"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:lines="1"
-                android:minLines="1"
-                android:padding="8dp"
-                android:text="@{movie.title}"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
-                tools:text="@tools:sample/lorem" />
 
         </FrameLayout>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:background="?attr/colorPrimaryVariant"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:minLines="1"
+            android:padding="8dp"
+            android:text="@{movie.title}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+            tools:text="@tools:sample/lorem" />
 
 
     </LinearLayout>

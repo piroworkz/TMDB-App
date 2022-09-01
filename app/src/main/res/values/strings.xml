@@ -4,5 +4,7 @@
     <string name="top_rated_title">Mejor Calificadas</string>
     <string name="now_playing_title">En Cartelera</string>
     <string name="search_by_title">Buscar por título</string>
+    <string name="search_top_rated">Buscar en mejor calificadas</string>
+    <string name="search_now_playing">Buscar \'En cartelera\'</string>
 
 </resources>

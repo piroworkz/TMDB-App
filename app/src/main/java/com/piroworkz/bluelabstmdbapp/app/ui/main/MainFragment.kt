@@ -13,8 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainFragment : Fragment(R.layout.fragment_main) {
 
-    private val moviesAdapter = MoviesAdapter(ratio = 1.7F) {stateHolder.navigate(it)}
-    private val nowPlayingAdapter = MoviesAdapter(ratio = 1.1F) {stateHolder.navigate(it)}
+    private val moviesAdapter = MoviesAdapter { stateHolder.navigate(it) }
+    private val nowPlayingAdapter = MoviesAdapter { stateHolder.navigate(it) }
 
     private lateinit var binding: FragmentMainBinding
     private lateinit var stateHolder: MainState
@@ -35,17 +35,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun setupNowPlayingRecyclerView() {
-        binding.nowPlayingRV.run {
-            adapter = nowPlayingAdapter
-        }
+        binding.nowPlayingRV.adapter = nowPlayingAdapter
     }
 
     private fun setUpTopRatedRecyclerView() {
-        val moviesGridLayoutManager = MoviesGridLayoutManager(requireContext())
-        binding.topMoviesRV.run {
-            adapter = moviesAdapter
-            layoutManager = moviesGridLayoutManager
-        }
+        binding.topMoviesRV.adapter = moviesAdapter
     }
 
     private fun setUpDataBindingVariables(it: MainViewModel.MainState) {
@@ -56,17 +50,18 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
 
     private fun search(state: MainViewModel.MainState) {
-        val searchView = binding.materialToolbar.menu.findItem(R.id.searchByTitle)
+        val searchView = binding.materialToolbar.menu.findItem(R.id.searchTopRatedMovies)
             .actionView as SearchView
 
         searchView.setOnQueryTextListener(
             stateHolder.queryListener(
                 st = state,
+                nowPlayingMovie = {
+                    it.toString().logMessage()
+                    nowPlayingAdapter.submitList(it)
+                },
                 topRatedMovie = {
                     moviesAdapter.submitList(it)
-                },
-                nowPlayingMovie = {
-                    nowPlayingAdapter.submitList(it)
                 })
         )
     }

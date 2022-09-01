@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/searchByTitle"
+        android:id="@+id/searchTopRatedMovies"
         android:icon="@android:drawable/ic_menu_search"
-        android:title="@string/search_by_title"
+        android:title="@string/search_top_rated"
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always" />
+
 </menu>
