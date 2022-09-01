@@ -13,6 +13,7 @@ class MainState(private val findNavController: NavController) {
         nowPlayingMovie: (List<Movie>) -> Unit
     ) = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(query: String?): Boolean {
+            "onQueryTextSubmit".logMessage()
             return true
         }
         override fun onQueryTextChange(newText: String?): Boolean {
