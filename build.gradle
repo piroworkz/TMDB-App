@@ -1,0 +1,27 @@
+import com.piroworkz.bluelabstmdbapp.buildSrc.AndroidX
+import com.piroworkz.bluelabstmdbapp.buildSrc.Hilt
+import com.piroworkz.bluelabstmdbapp.buildSrc.Kotlin
+import com.piroworkz.bluelabstmdbapp.buildSrc.Libs
+
+//run ./gradlew dependencyUpdates  to check latest versions on terminal.
+apply plugin: "com.github.ben-manes.versions"
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        classpath Libs.androidGradlePlugin
+        classpath Libs.gradleVersionsPlugin
+        classpath Kotlin.gradlePlugin
+        classpath AndroidX.navigationSafeArgs
+        classpath Hilt.gradlePlugin
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

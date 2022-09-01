@@ -1,0 +1,87 @@
+import com.piroworkz.bluelabstmdbapp.buildSrc.AndroidX
+import com.piroworkz.bluelabstmdbapp.buildSrc.Glide
+import com.piroworkz.bluelabstmdbapp.buildSrc.Hilt
+import com.piroworkz.bluelabstmdbapp.buildSrc.Libs
+import com.piroworkz.bluelabstmdbapp.buildSrc.Retrofit
+import com.piroworkz.bluelabstmdbapp.buildSrc.Room
+import com.piroworkz.bluelabstmdbapp.buildSrc.Testing
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.kapt'
+    id 'androidx.navigation.safeargs'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.piroworkz.bluelabstmdbapp"
+        minSdk 23
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    implementation project(":domain")
+    implementation project(":data")
+    implementation project(":usecases")
+
+    implementation AndroidX.coreKtx
+    implementation AndroidX.appCompat
+    implementation AndroidX.Views.materialDesign
+    implementation AndroidX.Views.constraintLayout
+    implementation AndroidX.legacySupport
+    implementation AndroidX.workRuntime
+
+    implementation AndroidX.viewModelKtx
+
+    implementation AndroidX.navigationUi
+    implementation AndroidX.navigationFragmentKtx
+
+    implementation Retrofit.retrofit
+    implementation Retrofit.retrofitGsonConverter
+    implementation Retrofit.okHttp
+
+    implementation Glide.glide
+    kapt Glide.compiler
+
+    implementation Room.runtime
+    implementation Room.ktx
+    kapt Room.compiler
+
+    implementation Hilt.android
+    implementation Hilt.workManager
+    kapt Hilt.compiler
+    kapt Hilt.workManagerKapt
+
+    implementation Libs.arrowEither
+
+    testImplementation Testing.jUnit
+    androidTestImplementation Testing.extJUnitKtx
+    androidTestImplementation Testing.espressoContrib
+}

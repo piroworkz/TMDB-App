@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Blue Labs TMDB App</string>
+    <string name="oval_shape_description">oval shape</string>
+    <string name="top_rated_title">Mejor Calificadas</string>
+    <string name="now_playing_title">En Cartelera</string>
+    <string name="search_by_title">Buscar por título</string>
+
+</resources>

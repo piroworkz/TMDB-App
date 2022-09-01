@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.8">
+      <module name="Blue_Labs_TMDB_App.app" target="11" />
+      <module name="Blue_Labs_TMDB_App.buildSrc" target="11" />
+      <module name="Blue_Labs_TMDB_App.buildSrc.main" target="11" />
+      <module name="Blue_Labs_TMDB_App.buildSrc.test" target="11" />
+      <module name="TMDB_App.app" target="11" />
+      <module name="TMDB_App.buildSrc" target="11" />
+      <module name="TMDB_App.buildSrc.main" target="11" />
+      <module name="TMDB_App.buildSrc.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

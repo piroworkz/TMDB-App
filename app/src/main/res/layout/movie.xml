@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.piroworkz.bluelabstmdbapp.domain.Movie" />
+
+        <variable
+            name="movie"
+            type="Movie" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        android:padding="2dp">
+
+        <FrameLayout
+            android:layout_width="190dp"
+            android:layout_height="wrap_content">
+
+            <com.piroworkz.bluelabstmdbapp.app.ui.common.CustomImageView
+                android:id="@+id/poster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:loadImg="@{movie.posterPath}"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="8dp"
+                android:background="@drawable/back"
+                app:cardCornerRadius="90dp">
+
+                <TextView
+                    android:id="@+id/rating"
+                    style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@{movie.voteAverage}"
+                    tools:text="8.7" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:background="?attr/colorPrimaryVariant"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lines="1"
+                android:minLines="1"
+                android:padding="8dp"
+                android:text="@{movie.title}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+                tools:text="@tools:sample/lorem" />
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+</layout>
