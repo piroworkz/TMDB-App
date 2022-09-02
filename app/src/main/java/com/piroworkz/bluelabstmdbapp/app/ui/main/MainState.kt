@@ -10,12 +10,14 @@ class MainState(private val findNavController: NavController) {
     fun queryListener(
         st: MainViewModel.MainState,
         topRatedMovie: (List<Movie>) -> Unit,
-        nowPlayingMovie: (List<Movie>) -> Unit
+        nowPlayingMovie: (List<Movie>) -> Unit,
+        submit: () -> Unit
     ) = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(query: String?): Boolean {
-            "onQueryTextSubmit".logMessage()
+            submit()
             return true
         }
+
         override fun onQueryTextChange(newText: String?): Boolean {
             submitLists(newText, st, topRatedMovie, nowPlayingMovie)
             return true

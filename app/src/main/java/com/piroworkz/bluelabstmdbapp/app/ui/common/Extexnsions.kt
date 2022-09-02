@@ -1,8 +1,12 @@
 package com.piroworkz.bluelabstmdbapp.app.ui.common
 
+import android.app.Activity
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
@@ -36,3 +40,12 @@ inline fun <T : Any> diffUtil(
 
 fun ViewGroup.inflate(layout: Int, attachedToRoot: Boolean): View =
     LayoutInflater.from(context).inflate(layout, this, attachedToRoot)
+
+fun Context.dismissKeyboard(view: View) {
+    val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+}
+
+fun Fragment.dismissKeyboard(view: View){
+    activity?.dismissKeyboard(view)
+}

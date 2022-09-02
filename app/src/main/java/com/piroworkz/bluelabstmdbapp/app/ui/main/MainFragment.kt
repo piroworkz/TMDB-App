@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.piroworkz.bluelabstmdbapp.R
 import com.piroworkz.bluelabstmdbapp.app.ui.common.collectFlow
+import com.piroworkz.bluelabstmdbapp.app.ui.common.dismissKeyboard
 import com.piroworkz.bluelabstmdbapp.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -57,11 +58,13 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             stateHolder.queryListener(
                 st = state,
                 nowPlayingMovie = {
-                    it.toString().logMessage()
                     nowPlayingAdapter.submitList(it)
                 },
                 topRatedMovie = {
                     moviesAdapter.submitList(it)
+                },
+                submit = {
+                    dismissKeyboard(searchView)
                 })
         )
     }
